@@ -13,6 +13,8 @@ RUN gem install bundler && bundle install
 # Copy the rest of the application files into the container
 COPY . /app/
 
+ RUN SECRET_KEY_BASE_DUMMY=1 bundle exec rails assets:precompile
+   ENTRYPOINT ["/rails/bin/docker-entrypoint" ]
 # Expose port 3000 for the Rails application
 EXPOSE 3000
 

@@ -17,6 +17,11 @@ gem 'cancancan'
 gem 'rack-cors'
 
 
+gem 'capistrano',                 '3.11.2'
+gem 'capistrano-rails',           '1.4.0'
+gem 'capistrano-rbenv',           '2.1.4 '
+gem 'capistrano-passenger',       '0.2.0'
+
 # Use pg as the database for Active Record
 # gem "pg", "~> 1.1"
 gem 'sqlite3'
