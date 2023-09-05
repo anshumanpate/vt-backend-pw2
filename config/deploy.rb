@@ -43,26 +43,27 @@ end
 # Put any custom commands you need to run at setup
 # All paths in `shared_dirs` and `shared_paths` will be created on their own.
 task :setup do
-  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/log"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/log"]
+  command %[mkdir -p "/home/deploy/rails_app/log"]
+  command %[chmod g+rx,u+rwx "/home/deploy/rails_app/log"]
 
-  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/pids"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/pids"]
+  command %[mkdir -p "/home/deploy/rails_app/pids"]
+  command %[chmod g+rx,u+rwx "/home/deploy/rails_app/pids"]
 
-  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/sockets"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/sockets"]
+  command %[mkdir -p "/home/deploy/rails_app/sockets"]
+  command %[chmod g+rx,u+rwx "/home/deploy/rails_app/sockets"]
 
-  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/scripts"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/scripts"]
+  command %[mkdir -p "/home/deploy/rails_app/scripts"]
+  command %[chmod g+rx,u+rwx "/home/deploy/rails_app/scripts"]
 
-  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/config"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/config"]
+  command %[mkdir -p "/home/deploy/rails_app/config"]
+  command %[chmod g+rx,u+rwx "/home/deploy/rails_app/config"]
 
-  queue! %[touch "#{deploy_to}/#{shared_path}/config/database.yml"]
-  queue! %[touch "#{deploy_to}/#{shared_path}/config/secrets.yml"]
-  queue %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/database.yml' and 'secrets.yml'."]
+  command %[touch "/home/deploy/rails_app/config/database.yml"]
+  command %[touch "/home/deploy/rails_app/config/secrets.yml"]
+  # queue %[echo "-----> Be sure to edit '/home/deploy/rails_app/config/database.yml' and 'secrets.yml'."]
 
-
+  command %{rvm install 3.0.0}
+  command %{rvm use 3.0.0 --default}
   command %{gem install bundler}
 end
 
