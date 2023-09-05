@@ -11,7 +11,7 @@ require 'mina/git'
 
 set :application_name, 'rails_app'
 set :domain, '16.171.19.196'
-set :deploy_to, '/home/deploy/rails_app'
+set :deploy_to, '/home/deploy'
 set :repository, 'git@github.com:anshumanpate/vt-backend-pw2.git'
 set :branch, 'features/deploy'
 
