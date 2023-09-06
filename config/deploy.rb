@@ -74,7 +74,7 @@ task :deploy do
   deploy do
 
     invoke :'git:clone'
-    invoke :"bundle:nstall--local"
+    command %{bundle install --local}
     # invoke :'bundle:install'
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
