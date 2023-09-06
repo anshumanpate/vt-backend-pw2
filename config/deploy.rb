@@ -16,9 +16,9 @@ set :repository, 'git@github.com:anshumanpate/vt-backend-pw2.git'
 set :branch, 'features/deploy'
 
 # Optional settings:
-  set :user, 'deploy'          # Username in the server to SSH to.
-  set :port, '22'           # SSH port number.
-  set :forward_agent, true     # SSH forward_agent.
+set :user, 'deploy'          # Username in the server to SSH to.
+set :port, '22'           # SSH port number.
+set :forward_agent, true     # SSH forward_agent.
 
 # Shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
 # Some plugins already add folders to shared_dirs like `mina/rails` add `public/assets`, `vendor/bundle` and many more
@@ -62,9 +62,9 @@ task :setup do
   command %[touch "/home/deploy/rails_app/config/secrets.yml"]
   # queue %[echo "-----> Be sure to edit '/home/deploy/rails_app/config/database.yml' and 'secrets.yml'."]
 
-  command %{rvm install 3.0.0}
-  command %{rvm use 3.0.0 --default}
-  command %{gem install bundler}
+  # command %{rvm install 3.0.0}
+  # command %{rvm use 3.0.0 --default}
+  # command %[gem install bundler]
 end
 
 desc "Deploys the current version to the server."
