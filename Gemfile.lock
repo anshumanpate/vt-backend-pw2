@@ -255,7 +255,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kaminari
-  mina
+  mina (~> 1.2, >= 1.2.4)
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors
