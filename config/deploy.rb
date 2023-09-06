@@ -64,7 +64,7 @@ task :setup do
 
   # command %{rvm install 3.0.0}
   # command %{rvm use 3.0.0 --default}
-  command %[gem install bundler]
+  # command %[gem install bundler]
 end
 
 desc "Deploys the current version to the server."
@@ -72,13 +72,14 @@ task :deploy do
   # uncomment this line to make sure you pushed your local branch to the remote origin
   # invoke :'git:ensure_pushed'
   deploy do
-    command %[gem install bundler]
+
     invoke :'git:clone'
-    invoke :'bundle:install'
+    invoke :"bundle:nstall--local"
+    # invoke :'bundle:install'
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
     # invoke :'git:clone'
-    # invoke :'deploy:link_shared_paths'
+    invoke :'deploy:link_shared_paths'
     # invoke :'bundle:install'
     invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
